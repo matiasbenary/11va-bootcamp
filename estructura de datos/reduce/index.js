@@ -673,5 +673,23 @@ const cardsHtml = rickAndMorty.reduce((acumulador, personaje) => {
   </div>`;
 }, '');
 
+const cardsHtml1 = rickAndMorty.map((personaje) => {
+  return `
+  <div class="col">
+    <div class="card">
+      <img src="${personaje.image}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">${personaje.name}</h5>
+        <p class="card-text">${personaje.species} - ${personaje.gender}</p>
+        <p class="card-text">${personaje.created}</p>
+        <p class="card-text">Ubicacion ${personaje.location.name}</p>
+      </div>
+    </div>
+  </div>`;
+}).join("");
+
+
+console.log(cardsHtml1);
+
 const cards = document.querySelector('#cards');
-cards.innerHTML = cardsHtml;
+cards.innerHTML = cardsHtml1;
